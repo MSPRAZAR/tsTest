@@ -1,10 +1,15 @@
 export interface Restaurant {
-    isOpen: boolean
+    isOpen: boolean,
+    numberOfWaiter: number,
+    waiters: Waiter[]
+    totalTurnover: number,
 };
 
 export interface Waiter {
     name: string,
-    turnover: boolean,
+    turnover: number,
+    orders?: Order[],
+    tables?: Table[], 
 }
 
 export interface Table {
@@ -13,4 +18,10 @@ export interface Table {
 
 export interface Order {
     amount: number,
+}
+
+export interface Franchise {
+    restaurants: Restaurant[],
+    totalTurnover: number,
+    numberOfRestaurants: number,
 }
