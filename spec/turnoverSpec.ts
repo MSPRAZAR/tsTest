@@ -1,11 +1,9 @@
-import { Waiter, Order } from "../objects";
-
 // SCOPE Serveur
 
 describe("WAITER SCOPE", () => {
   it("GIVEN new waiter WHEN created THEN has 0 turnover", () => {
     // 		ÉTANT DONNÉ un nouveau serveur
-    const waiter = new Waiter("Charles", 0);
+    const waiter= new Waiter("Charles", 0);
     // 		QUAND on récupére son chiffre d'affaires
     // 		ALORS celui-ci est à 0
     expect(waiter.turnover).toEqual(0);

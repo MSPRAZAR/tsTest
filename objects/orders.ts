@@ -1,4 +1,4 @@
-export class Order {
+class Order {
     constructor(
         public amount: number,
     ){}

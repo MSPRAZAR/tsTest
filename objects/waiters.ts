@@ -1,8 +1,8 @@
 // import { Waiter } from "../types/mainTypes";
 
-import { Order } from ".";
+// import { Order } from ".";
 
-export class Waiter {
+class Waiter {
   constructor(public name: string, public turnover: number) {}
 
   public affectOrder(orders: Order[]) {
