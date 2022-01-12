@@ -1,4 +1,4 @@
-import { Order, Waiter, Restaurant } from "../types/mainTypes";
+import { Order, Waiter, Restaurant } from "../../types/mainTypes";
 
 export function affectOrder(orders: Order[], waiter: Waiter) {
   for (let order of orders) {
@@ -7,14 +7,19 @@ export function affectOrder(orders: Order[], waiter: Waiter) {
   return waiter.turnover;
 }
 
-export function assignNumberOfOrderWithFixPrice(count: number, price: number, waiters: Waiter[] ) :number{
+export function assignNumberOfOrderWithFixPrice(
+  count: number, 
+  price: number, 
+  waiters: Waiter[] 
+) : number
+{
   const totalPerWaiter = (count * price);
   if(waiters) {
     for (let waiter of waiters) {
        waiter.turnover = totalPerWaiter;
        
     }
-  } 
+  }  
   return totalPerWaiter;
 
 }

@@ -15,7 +15,7 @@ export class WaiterBuilder {
       return this;
     }
     
-    age(turnover: number): WaiterBuilder {
+    withTotalTurnover(turnover: number): WaiterBuilder {
       this._waiter.turnover = turnover;
       return this;
     }

@@ -1,5 +1,6 @@
 import { Restaurant } from "../../types/mainTypes";
 
+
 export class RestaurantBuilder {
     private readonly _restaurant: Restaurant;
   

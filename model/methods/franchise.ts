@@ -1,9 +1,10 @@
-import { Franchise, Restaurant } from "../types/mainTypes";
+import { Franchise, Restaurant } from "../../types/mainTypes";
 import { assignNumberOfOrderWithFixPrice } from "./waiters";
 
 export function totalTurnoverFranchise(
   franchise: Franchise,
-): number {
+): number
+{
   let total: number = 0;
   const { restaurants} = franchise;
   for (let restaurant of restaurants) {
@@ -16,7 +17,12 @@ export function totalTurnoverFranchise(
   return total;
 }
 
-export function assignOrdersToWaiterAllRestaurantsInFranchise(count: number, price: number, franchise: Franchise): number {
+export function assignOrdersToWaiterAllRestaurantsInFranchise(
+        count: number,
+        price: number,
+        franchise: Franchise
+): number
+{
   const { restaurants} = franchise;
   let total = 0;
     if(restaurants) {
@@ -34,4 +40,4 @@ export function assignOrdersToWaiterAllRestaurantsInFranchise(count: number, pri
 
     return franchise.totalTurnover = fullTotal;
 
-  }
+}

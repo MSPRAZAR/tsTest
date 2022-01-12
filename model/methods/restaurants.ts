@@ -1,4 +1,4 @@
-import { Restaurant, Waiter } from "../types/mainTypes";
+import { Restaurant, Waiter } from "../../types/mainTypes";
 import { assignNumberOfOrderWithFixPrice } from "./waiters";
 
 export function totalTurnover(restaurant: Restaurant): number {

@@ -1,5 +1,4 @@
 import { Franchise, Restaurant } from "../../types/mainTypes";
-import { GeneratorWaiter } from "./generatorWaiter";
 
 export class FranchiseBuilder {
   private readonly _franchise: Franchise;
