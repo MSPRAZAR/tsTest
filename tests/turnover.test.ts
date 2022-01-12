@@ -18,6 +18,9 @@ import { WaiterBuilder } from "./utils/builderWaiter";
 import { FranchiseBuilder } from "./utils/builderFranchise";
 import { GeneratorFranchise } from "./utils/generatorFranchise";
 
+import {expect} from 'chai';
+
+
 // SCOPE Serveur
 
 describe("WAITER SCOPE", () => {
@@ -26,7 +29,7 @@ describe("WAITER SCOPE", () => {
     const waiter: Waiter = { name: "Charles", turnover: 0 };
     // 		QUAND on récupére son chiffre d'affaires
     // 		ALORS celui-ci est à 0
-    expect(waiter.turnover).toEqual(0);
+    expect(waiter.turnover).to.equal(0);
   });
 
   it("GIVEN new server WHEN takes an order THEN his turnover equal to order amount", () => {
@@ -36,7 +39,7 @@ describe("WAITER SCOPE", () => {
     const firstOrder: Order = { amount: 12 };
     affectOrder([firstOrder], waiter);
     // 		ALORS son chiffre d'affaires est le montant de celle-ci
-    expect(waiter.turnover).toEqual(12);
+    expect(waiter.turnover).to.equal(12);
   });
   it("GIVEN new server WHEN takes an order THEN his turnover equal to order amount", () => {
     // 		ÉTANT DONNÉ un serveur ayant déjà pris une commande
@@ -46,7 +49,7 @@ describe("WAITER SCOPE", () => {
     const secondOrder: Order = { amount: 10 };
     affectOrder([firstOrder, secondOrder], waiter);
     // 		ALORS son chiffre d'affaires est la somme des deux commandes
-    expect(waiter.turnover).toEqual(22);
+    expect(waiter.turnover).to.equal(22);
   });
 });
 
@@ -70,7 +73,7 @@ describe("RESTAURANT SCOPE", () => {
     // 		CAS(X = 0; X = 1; X = 2; X = 100)
     // 		CAS(Y = 1.0)
     addToTotalTurnover(restaurant);
-    expect(restaurant.totalTurnover).toEqual(103);
+    expect(restaurant.totalTurnover).to.equal(103);
   });
 });
 
@@ -96,7 +99,7 @@ describe("FRANCHISE SCOPE", () => {
     // ALORS le chiffre d'affaires de la franchise est X * Y * Z
 
     franchise.totalTurnover = totalTurnoverFranchise(franchise);
-    expect(franchise.totalTurnover).toEqual(
+    expect(franchise.totalTurnover).to.equal(
       totalTurnover(restaurant1) +
         totalTurnover(restaurant2) +
         totalTurnover(restaurant3) +
