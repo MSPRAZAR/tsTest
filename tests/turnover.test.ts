@@ -18,14 +18,14 @@ describe("WAITER SCOPE", () => {
     " WHEN created " +
     "THEN has 0 turnover",
     () => {
-      // 		ÉTANT DONNÉ un nouveau serveur
+      // ÉTANT DONNÉ un nouveau serveur
       const waiter: Waiter = new WaiterBuilder()
                                   .build();
 
-      // 		QUAND on récupére son chiffre d'affaires
+      // QUAND on récupére son chiffre d'affaires
       const turnoverWaiter = waiter.turnover;
 
-      // 		ALORS celui-ci est à 0
+      // ALORS celui-ci est à 0
       expect(turnoverWaiter).toEqual(0);
     });
 
@@ -34,18 +34,18 @@ describe("WAITER SCOPE", () => {
     "WHEN takes an order "+
     "THEN his turnover equal to order amount", 
   () => {
-    // 		ÉTANT DONNÉ un nouveau serveur
+    // ÉTANT DONNÉ un nouveau serveur
     const waiter: Waiter = new WaiterBuilder()
                                 .name("Henry")
                                 .build();
 
-    // 		QUAND il prend une commande
+    // QUAND il prend une commande
     const firstOrder: Order = new OrderBuilder()
                                   .withAmount(12)
                                   .build();
     affectOrder([firstOrder], waiter);
 
-    // 		ALORS son chiffre d'affaires est le montant de celle-ci
+    // ALORS son chiffre d'affaires est le montant de celle-ci
     expect(waiter.turnover).toEqual(12);
   });
 
@@ -54,7 +54,7 @@ describe("WAITER SCOPE", () => {
     "WHEN takes an order "+
     "THEN his turnover equal to order amount", 
     () => {
-      // 		ÉTANT DONNÉ un serveur ayant déjà pris une commande
+      // ÉTANT DONNÉ un serveur ayant déjà pris une commande
       const firstOrder: Order = new OrderBuilder()
                                   .withAmount(12)
                                   .build();
@@ -63,13 +63,13 @@ describe("WAITER SCOPE", () => {
                                 .withTotalTurnover(firstOrder.amount)
                                 .build();
 
-      // 		QUAND il prend une nouvelle commande
+      // QUAND il prend une nouvelle commande
       const secondOrder: Order = new OrderBuilder()
                                     .withAmount(10)
                                     .build();
       affectOrder([secondOrder], waiter);
 
-      // 		ALORS son chiffre d'affaires est la somme des deux commandes
+      // ALORS son chiffre d'affaires est la somme des deux commandes
       expect(waiter.turnover).toEqual(22);
   });
 });
@@ -85,7 +85,7 @@ describe("RESTAURANT SCOPE", () => {
     "WHEN there is multiple order "+
     "THEN its turnover should be the sum of all orders", 
   () => {
-    // 		ÉTANT DONNÉ un restaurant ayant X serveurs
+    // 	ÉTANT DONNÉ un restaurant ayant X serveurs
     const nbWaiters = 4;
     const orderAmount = 15;
     
@@ -101,7 +101,7 @@ describe("RESTAURANT SCOPE", () => {
       restaurant.waiters.push(waiter);
     } 
     
-    // 		QUAND tous les serveurs prennent une commande d'un montant Y
+    // 	QUAND tous les serveurs prennent une commande d'un montant Y
     const { waiters } = restaurant;
     const orderTakenByAllWaiters: Order = new OrderBuilder()
                                   .withAmount(orderAmount)
@@ -114,9 +114,9 @@ describe("RESTAURANT SCOPE", () => {
       })
     }
 
-    // 		ALORS le chiffre d'affaires de la franchise est X * Y
-    // 		CAS(X = 0; X = 1; X = 2; X = 100)
-    // 		CAS(Y = 1.0)
+    // 	ALORS le chiffre d'affaires de la franchise est X * Y
+    // 	CAS(X = 0; X = 1; X = 2; X = 100)
+    // 	CAS(Y = 1.0)
   
     addToTotalTurnover(restaurant);
     const x = nbWaiters;
