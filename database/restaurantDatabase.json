@@ -1,0 +1,221 @@
+ {
+    "resturantsTypes": {
+        "restaurantsWithWaiterNoTurnover" : {
+            "totalTurnover": 0,
+            "numberOfRestaurants": 3,
+            "restaurants" : 
+                [
+                    {
+                        "isOpen": true,
+                        "numberOfWaiter": 2,
+                        "waiters": [
+                            {
+                                "name": "R1 - Serveur 1",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R1 - Serveur 2",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            }
+                        ],
+                        "totalTurnover": 0,
+                        "restaurantName": "Restaurant 1"
+                    },
+                    {
+                        "isOpen": true,
+                        "numberOfWaiter": 3,
+                        "waiters": [
+                            {
+                                "name": "R2 - Serveur 1",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R2 - Serveur 2",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R2 - Serveur 3",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            }
+                        ],
+                        "totalTurnover": 0,
+                        "restaurantName": "Restaurant 2"
+                    },
+                    {
+                        "isOpen": true,
+                        "numberOfWaiter": 4,
+                        "waiters": [
+                            {
+                                "name": "R3 - Serveur 1",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R3 - Serveur 2",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R3 - Serveur 3",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            },
+                            {
+                                "name": "R4 - Serveur 4",
+                                "turnover": 0,
+                                "orders": [],
+                                "tables": []
+                            }
+                        ],
+                        "totalTurnover": 0,
+                        "restaurantName": "Restaurant 3"
+                    }
+                ]
+        },
+        "restaurantsWithWaiterTurnover" : {
+            "totalTurnover": 0,
+            "numberOfRestaurants": 3,
+            "restaurants" :
+                [
+                    {
+                        "restaurantName": "Restaurant 4",
+                        "waiters": [
+                            {
+                                "name": "R4 - Serveur 1",
+                                "turnover": 20,
+                                "orders": [{"amount" : 10}, {"amount" : 10}],
+                                "tables": []
+                            },
+                            {
+                                "name": "R4 - Serveur 2",
+                                "turnover": 40,
+                                "orders": [{"amount" : 20}, {"amount" : 20}],
+                                "tables": []
+                            }
+                        ]
+                    },
+                    {
+                        "restaurantName": "Restaurant 5",
+                        "waiters": [
+                            {
+                                "name": "R5 - Serveur 1",
+                                "turnover": 20,
+                                "orders": [{"amount" : 10}, {"amount" : 10}],
+                                "tables": []
+                            },
+                            {
+                                "name": "R5 - Serveur 2",
+                                "turnover": 20,
+                                "orders": [{"amount" : 20}],
+                                "tables": []
+                            },
+                            {
+                                "name": "R5 - Serveur 3",
+                                "turnover": 60,
+                                "orders": [{"amount" : 30}, {"amount" : 30}],
+                                "tables": []
+                            }
+                        ]
+                    }
+                ]
+        }
+    },
+    "franchise": {
+        "totalTurnover": 0,
+        "numberOfRestaurants": 3,
+        "restaurants": 
+            [
+                {
+                    "restaurantName": "Restaurant 1",
+                    "isOpen": true,
+                    "numberOfWaiter": 3,
+                    "totalTurnover": 0,
+                    "waiters": [
+                        {
+                            "name": "R1 - Serveur 1",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R1 - Serveur 2",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R1 - Serveur 3",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        }
+                    ]
+                },
+                {
+                    "restaurantName": "Restaurant 2",
+                    "isOpen": true,
+                    "numberOfWaiter": 3,
+                    "totalTurnover": 0,
+                    "waiters": [
+                        {
+                            "name": "R2 - Serveur 1",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R2 - Serveur 2",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R2 - Serveur 3",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        }
+                    ]
+                },
+                {
+                    "restaurantName": "Restaurant 3",
+                    "isOpen": true,
+                    "numberOfWaiter": 3,
+                    "totalTurnover": 0,
+                    "waiters": [
+                        {
+                            "name": "R3 - Serveur 1",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R3 - Serveur 2",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        },
+                        {
+                            "name": "R3 - Serveur 3",
+                            "turnover": 0,
+                            "orders": [],
+                            "tables": []
+                        }
+                    ]
+                }
+            ]
+    }
+}

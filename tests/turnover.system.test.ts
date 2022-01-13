@@ -5,22 +5,21 @@ import { RestaurantBuilder } from "./utils/builderRestaurant";
 import { WaiterBuilder } from "./utils/builderWaiter";
 import { OrderBuilder } from "./utils/builderOder";
 import { FranchiseBuilder } from "./utils/builderFranchise";
-import { WaiterGenerator } from "../tests/utils/generatorWaiter";
+import { WaiterGenerator } from "./utils/generatorWaiter";
 import { RestaurantGenerator } from "./utils/generatorRestaurant";
 
-
+const each = require("jest-each").default;
 
 /*******    SCOPE Serveur     *******/
 
 describe("WAITER SCOPE", () => {
 
   it("GIVEN new waiter " +
-    " WHEN created " +
+    "WHEN created " +
     "THEN has 0 turnover",
     () => {
       // ÉTANT DONNÉ un nouveau serveur
-      const waiter: Waiter = new WaiterBuilder()
-                                  .build();
+      const waiter: Waiter = new WaiterBuilder().build();
 
       // QUAND on récupére son chiffre d'affaires
       const turnoverWaiter = waiter.turnover;
@@ -30,9 +29,9 @@ describe("WAITER SCOPE", () => {
     });
 
 
-  it("GIVEN new server "+
-    "WHEN takes an order "+
-    "THEN his turnover equal to order amount", 
+  it("GIVEN new server " +
+    "\nWHEN takes an order " +
+    "\nTHEN his turnover equal to order amount", 
   () => {
     // ÉTANT DONNÉ un nouveau serveur
     const waiter: Waiter = new WaiterBuilder()
@@ -50,13 +49,15 @@ describe("WAITER SCOPE", () => {
   });
 
 
-  it("GIVEN new server "+
-    "WHEN takes an order "+
-    "THEN his turnover equal to order amount", 
+  it("GIVEN a waiter with already an order "+
+    "\nWHEN he takes a new order "+
+    "\nTHEN his turnover is the sum of the 2 orders", 
     () => {
       // ÉTANT DONNÉ un serveur ayant déjà pris une commande
+      const amountFirstOrder = 12;
+      const amountSecondOrder = 10;
       const firstOrder: Order = new OrderBuilder()
-                                  .withAmount(12)
+                                  .withAmount(amountFirstOrder)
                                   .build();
       const waiter: Waiter = new WaiterBuilder()
                                 .name("Henry")
@@ -65,13 +66,14 @@ describe("WAITER SCOPE", () => {
 
       // QUAND il prend une nouvelle commande
       const secondOrder: Order = new OrderBuilder()
-                                    .withAmount(10)
+                                    .withAmount(amountSecondOrder)
                                     .build();
       affectOrder([secondOrder], waiter);
 
       // ALORS son chiffre d'affaires est la somme des deux commandes
       expect(waiter.turnover).toEqual(22);
   });
+
 });
 
 
@@ -81,13 +83,19 @@ describe("WAITER SCOPE", () => {
 
 
 describe("RESTAURANT SCOPE", () => {
-  it("GIVEN a restaurant with X waiters "+
-    "WHEN there is multiple order "+
-    "THEN its turnover should be the sum of all orders", 
-  () => {
+  each([
+    [0, 15],
+    [1, 15],
+    [2, 15],
+    [100, 15]
+  ])
+  .it("GIVEN a restaurant with X='%s' waiters "+
+    "\nWHEN all waiters take an order take an order with amount Y='%s' "+
+    "\nTHEN restaurant turnover is X * Y", 
+  (x: number, y: number) => {
     // 	ÉTANT DONNÉ un restaurant ayant X serveurs
-    const nbWaiters = 4;
-    const orderAmount = 15;
+    const nbWaiters = x;
+    const orderAmount = y;
     
     const restaurant: Restaurant = new RestaurantBuilder()
                                     .isOpen(true)
@@ -117,29 +125,33 @@ describe("RESTAURANT SCOPE", () => {
     // 	ALORS le chiffre d'affaires de la franchise est X * Y
     // 	CAS(X = 0; X = 1; X = 2; X = 100)
     // 	CAS(Y = 1.0)
-  
     addToTotalTurnover(restaurant);
-    const x = nbWaiters;
-    const y = orderAmount;
     expect(restaurant.totalTurnover).toEqual(x * y);
   });
+
 });
-
-
 
 
 /*******    SCOPE Franchise     *******/
 
 describe("FRANCHISE SCOPE", () => {
-  it("GIVEN a franchise with X restaurants with Y waiters "+
-    "WHEN every waiters takes an order of amount Z " +
-    "THEN franchise's turnover should be X*Y*Z", 
-    () => {
+
+  each([
+    [0, 0, 85],
+    [0, 1, 85],
+    [1, 1, 15],
+    [1, 2, 15],
+    [2, 2, 15],
+  ])
+  .it("GIVEN a franchise with X=%s restaurants with Y=%s waiters each one "+
+    "\nWHEN every waiters takes an order of amount Z=%s " +
+    "\nTHEN franchise's turnover should be X*Y*Z", 
+    (x: number, y: number, z: number) => {
 
       // ÉTANT DONNÉ une franchise ayant X restaurants de Y serveurs chacuns
-      const nbRestaurant = 4;  
-      const nbWaiters = 3;
-      const orderAmount = 50
+      const nbRestaurant = x;  
+      const nbWaiters = y;
+      const orderAmount = z;
 
       const franchise : Franchise = new FranchiseBuilder()
                                     .numberOfRestaurants(nbRestaurant)
@@ -181,9 +193,6 @@ describe("FRANCHISE SCOPE", () => {
       }
       
       // ALORS le chiffre d'affaires de la franchise est X * Y * Z
-      const x = nbRestaurant;  
-      const y = nbWaiters;
-      const z = orderAmount;
       franchise.totalTurnover = totalTurnoverFranchise(franchise);
       expect(franchise.totalTurnover).toEqual(x*y*z);
     });
