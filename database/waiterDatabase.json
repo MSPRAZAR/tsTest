@@ -1,6 +1,6 @@
-module.exports = {
-    "waiterDatabase" : {
-    "retaurantsWithWaiterNoTurnover" : [
+ {
+     "franchise": {
+    "restaurantsWithWaiterNoTurnover" : [
         {
             "restaurantName": "Restaurant 1",
             "waiters": [
@@ -65,18 +65,18 @@ module.exports = {
             ]
         }
     ],
-    "retaurantsWithWaiterTurnover" : [
+    "restaurantsWithWaiterTurnover" : [
         {
-            "restaurantName": "Restaurant 1",
+            "restaurantName": "Restaurant 4",
             "waiters": [
                 {
-                    "name": "R1 - Serveur 1",
+                    "name": "R4 - Serveur 1",
                     "turnover": 0,
                     "orders": [{"amount" : 10}, {"amount" : 10}],
                     "tables": []
                 },
                 {
-                    "name": "R1 - Serveur 2",
+                    "name": "R4 - Serveur 2",
                     "turnover": 0,
                     "orders": [{"amount" : 20}, {"amount" : 20}],
                     "tables": []
@@ -84,22 +84,22 @@ module.exports = {
             ]
         },
         {
-            "restaurantName": "Restaurant 2",
+            "restaurantName": "Restaurant 5",
             "waiters": [
                 {
-                    "name": "R2 - Serveur 1",
+                    "name": "R5 - Serveur 1",
                     "turnover": 0,
                     "orders": [{"amount" : 10}, {"amount" : 10}],
                     "tables": []
                 },
                 {
-                    "name": "R2 - Serveur 2",
+                    "name": "R5 - Serveur 2",
                     "turnover": 0,
                     "orders": [{"amount" : 20}],
                     "tables": []
                 },
                 {
-                    "name": "R2 - Serveur 3",
+                    "name": "R5 - Serveur 3",
                     "turnover": 0,
                     "orders": [{"amount" : 30}, {"amount" : 30}],
                     "tables": []

@@ -3,6 +3,7 @@ export interface Restaurant {
     numberOfWaiter: number,
     waiters: Waiter[]
     totalTurnover: number,
+    restaurantName: string;
 };
 
 export interface Waiter {
