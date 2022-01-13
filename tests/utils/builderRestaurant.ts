@@ -6,6 +6,7 @@ export class RestaurantBuilder {
   
     constructor() {
       this._restaurant = {
+        restaurantName : "",
         isOpen: false,
         numberOfWaiter: 0,
         waiters: [],
