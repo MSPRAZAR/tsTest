@@ -1,4 +1,4 @@
-import { Order } from "../../types/mainTypes";
+import { Order, orderType } from "../../types/mainTypes";
 
 export class OrderBuilder {
     private readonly _order: Order;
@@ -9,6 +9,10 @@ export class OrderBuilder {
   
     withAmount(amount: number): OrderBuilder {
       this._order.amount = amount;
+      return this;
+    }
+    withType(type: orderType): OrderBuilder {
+      this._order.type = type;
       return this;
     }
   

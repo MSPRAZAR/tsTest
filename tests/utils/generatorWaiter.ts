@@ -13,6 +13,7 @@ export class WaiterGenerator {
     for (let i = 0; i < numberOfWaiter; i++) {
       yield new WaiterBuilder()
                 .name(`Restaurant ${restaurantNum} - Serveur n*${i}`)
+                .withTotalTurnover(0)
                 .build(); 
     }
   }

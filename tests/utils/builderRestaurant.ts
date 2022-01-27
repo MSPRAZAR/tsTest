@@ -11,6 +11,8 @@ export class RestaurantBuilder {
         numberOfWaiter: 0,
         waiters: [],
         totalTurnover: 0,
+        kitchen: {taskList: []},
+        tables: [],
       };
     }
   

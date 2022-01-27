@@ -1,10 +1,25 @@
-import { Order, Waiter, Restaurant } from "../../types/mainTypes";
+import { Order, Waiter, Restaurant, Kitchen, orderType } from "../../types/mainTypes";
 
 export function affectOrder(orders: Order[], waiter: Waiter) {
   for (let order of orders) {
     waiter.turnover += order.amount;
+    waiter.orders?.push(order);
   }
   return waiter.turnover;
+}
+
+export function sendOrderToKitchen(waiter: Waiter, kitchen: Kitchen) {
+  let foodOrder = [];
+  const {orders} = waiter;
+  if(orders) {
+    for (let order of orders) {
+      if(order.type === orderType.food) {
+        foodOrder.push(order);
+      }
+    }
+  }
+  kitchen.taskList = foodOrder;
+  return kitchen;
 }
 
 export function assignNumberOfOrderWithFixPrice(
@@ -21,7 +36,6 @@ export function assignNumberOfOrderWithFixPrice(
     }
   }  
   return totalPerWaiter;
-
 }
 
 export function addToTotalTurnover(restaurant: Restaurant) {

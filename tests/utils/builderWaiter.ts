@@ -6,7 +6,8 @@ export class WaiterBuilder {
     constructor() {
       this._waiter = {
         name: "",
-        turnover: 0
+        turnover: 0,
+        orders: [],
       };
     }
   
