@@ -15,7 +15,6 @@ describe("SCOPE ORDERS", () => {
       // 	ÉTANT DONNE un serveur dans un restaurant
       const nbWaiter = 1;
       const restaurant: Restaurant = new RestaurantBuilder()
-        .isOpen(true)
         .numberOfWaiter(nbWaiter)
         .build();
       const waiterGenerator: Iterable<Waiter> = new WaiterGenerator().generate(
@@ -43,7 +42,6 @@ describe("SCOPE ORDERS", () => {
       // 	ALORS cette commande n'apparaît pas dans la liste de tâches de la cuisine de ce restaurant
       const nbWaiter = 1;
       const restaurant: Restaurant = new RestaurantBuilder()
-        .isOpen(true)
         .numberOfWaiter(nbWaiter)
         .build();
       const waiterGenerator: Iterable<Waiter> = new WaiterGenerator().generate(

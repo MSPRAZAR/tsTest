@@ -98,7 +98,6 @@ describe("RESTAURANT SCOPE", () => {
     const orderAmount = y;
     
     const restaurant: Restaurant = new RestaurantBuilder()
-                                    .isOpen(true)
                                     .numberOfWaiter(nbWaiters)
                                     .build();
     const waiterGenerator : Iterable<Waiter> = new WaiterGenerator()

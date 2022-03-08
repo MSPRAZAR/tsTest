@@ -1,4 +1,4 @@
-import { Franchise, Restaurant } from "../../types/mainTypes";
+import { Franchise, Menu, Restaurant } from "../../types/mainTypes";
 import { assignNumberOfOrderWithFixPrice } from "./waiters";
 
 export function totalTurnoverFranchise(
@@ -41,3 +41,22 @@ export function assignOrdersToWaiterAllRestaurantsInFranchise(
     return franchise.totalTurnover = fullTotal;
 
 }
+
+export function updateDishesPrice(dishes: Menu, franchise: Franchise, restaurant: Restaurant): Franchise  {
+ const wantedDishesForFranchise =  franchise.menu?.find((plat) => plat.dishes = dishes.dishes);
+ const wantedDishesForRestaurant = restaurant.menu?.find((plat) => plat.dishes = dishes.dishes);
+ if(wantedDishesForFranchise && wantedDishesForRestaurant) {
+  wantedDishesForFranchise.price = dishes.price;
+  wantedDishesForRestaurant.price = dishes.price;
+ } 
+  return franchise;
+}
+
+export function notUpdateDishesPrice(dishes: Menu, franchise: Franchise): Franchise  {
+  const wantedDishesForFranchise =  franchise.menu?.find((plat) => plat.dishes = dishes.dishes);
+  if(wantedDishesForFranchise) {
+   wantedDishesForFranchise.price = dishes.price;
+  } 
+   return franchise;
+ }
+

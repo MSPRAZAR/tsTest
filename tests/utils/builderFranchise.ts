@@ -16,6 +16,13 @@ export class FranchiseBuilder {
     return this;
   }
 
+  newDish(name: string, price: number): FranchiseBuilder {
+    let menu = [];
+    menu.push({dishes: name, price: price});
+    this._franchise.menu = menu;
+    return this;
+  }
+
   build(): Franchise {
     return this._franchise;
   }

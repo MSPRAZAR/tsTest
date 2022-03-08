@@ -1,10 +1,10 @@
-import { Order, orderType } from "../../types/mainTypes";
+import { Order, orderStatus, orderType } from "../../types/mainTypes";
 
 export class OrderBuilder {
     private readonly _order: Order;
   
     constructor() {
-      this._order = { amount: 0 };
+      this._order = { amount: 0, status: orderStatus.ongoing };
     }
   
     withAmount(amount: number): OrderBuilder {
@@ -13,6 +13,10 @@ export class OrderBuilder {
     }
     withType(type: orderType): OrderBuilder {
       this._order.type = type;
+      return this;
+    }
+    withStatus(status: orderStatus): OrderBuilder{
+      this._order.status = status;
       return this;
     }
   
